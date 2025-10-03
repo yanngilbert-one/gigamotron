@@ -1,6 +1,6 @@
 import pyautogui
 import time
-#to get this to work on your machine you will open the terminal (can just run the file to get it to open, and in the terminal type "-m pip install pyautogui")
+#to get this to work on your machine you will open the terminal (can just run the file to get it to open, and in the terminal type "-m pip install pyautogui"), restart vscode after running this to be able to use it
 #this is the library we will be using to control the mouse and keyboard, see example below
 
 pyautogui.moveTo(500,500, duration=2)
