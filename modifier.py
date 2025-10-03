@@ -7,7 +7,7 @@ class Modifier:
         self.affix = affix
 
     def __repr__(self):
-        return f"{self.value}"
+        return f'Modifier(name="{self.name}", value)'
     
 #read the file and create an object for each line of the file. "r" to read the file and cannot write
 
@@ -32,4 +32,5 @@ with open("modifiers.txt", "r") as file:
             current_block[key] = value
 
 for affix, names in modifiers_by_affix.items():
-    print(f"{affix} = {names}")
+    quoted_names = [f'"{name}"' for name in names]  # wrap each name in double quotes
+    print(f"{affix} = [{', '.join(quoted_names)}]")

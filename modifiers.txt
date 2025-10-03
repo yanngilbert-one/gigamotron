@@ -1,9 +1,9 @@
 {
-    modifier="dictator's"
+    modifier="MERCiless"
     affix="prefix"
 }
 {
-    modifier="MERCiless"
+    modifier="dictator's"
     affix="prefix"
 }
 {
