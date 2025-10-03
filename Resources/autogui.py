@@ -66,16 +66,3 @@ def use_aug():
     pyautogui.rightClick()
     hover_item()
 
-#loop to test if the functions together are working and it did!
-for i in range(10):
-    use_alt()
-    pyautogui.click(button="left")
-    
-    time.sleep(0.1)
-    copy_item()
-    if check_clipboard_for("Girded", 3):
-        print("Found Girded in item, stopping")
-        break
-    else:
-        print("not Girded, againnnn")
-        time.sleep(0.1)
