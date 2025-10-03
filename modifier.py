@@ -2,23 +2,34 @@
 
 #create Modifier object which has a name and a value ex: modifer="dictator's"
 class Modifier:
-    def __init__ (self, name: str, value: str):
+    def __init__ (self, name: str, affix: str):
         self.name = name
-        self.value = value
+        self.affix = affix
 
     def __repr__(self):
         return f"{self.value}"
     
 #read the file and create an object for each line of the file. "r" to read the file and cannot write
 
-modifiers=[]   
+modifiers_by_affix={}
 with open("modifiers.txt", "r") as file:
+    current_block={}
     for line in file:
         line = line.strip()
-        if "=" in line:
-            name, value = line.split ("=", 1)
-            name = name.strip()
+        if line.startswith("{"):
+            current_block={}
+        elif line.startswith("}"):
+            if "modifier" in current_block and "affix" in current_block:
+                affix=current_block["affix"]
+                name=current_block["modifier"]
+                if affix not in modifiers_by_affix:
+                    modifiers_by_affix[affix] = []
+                modifiers_by_affix[affix].append(name)
+        elif "=" in line:
+            key, value = line.split ("=", 1)
+            key = key.strip()
             value = value.strip().strip('"').lower() #I am removing the "" could probably just not add them to the txt file and lower case
-            modifiers.append(Modifier(name, value))
+            current_block[key] = value
 
-print(modifiers)
+for affix, names in modifiers_by_affix.items():
+    print(f"{affix} = {names}")
