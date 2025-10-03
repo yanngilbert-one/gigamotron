@@ -20,6 +20,7 @@ for affix, names in affixes.items():
 
 # @kipper
 #Example of two methods, first is copying without advanced mod description, second is with advanced mod description
+#seems like we will need to use advanced to be able to see mod names so we will need to ctrl + alt + c
 '''
 Item Class: Bows
 Rarity: Magic
