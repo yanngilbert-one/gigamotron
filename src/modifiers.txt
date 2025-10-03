@@ -1,16 +1,20 @@
 {
     modifier="MERCiless"
     affix="prefix"
+    use=0
 }
 {
     modifier="dictator's"
     affix="prefix"
+    use=1
 }
 {
     modifier="of fire"
     affix="suffix"
+    use=1
 }
 {
     modifier="of gayness"
     affix="suffix"
+    use=1
 }
