@@ -1,10 +1,11 @@
 import pyperclip #used to see what was copied.
 import pyautogui
 import time
+from . import read_config
 #to get this to work on your machine you will open the terminal (can just run the file to get it to open, and in the terminal type "-m pip install pyautogui"), restart vscode after running this to be able to use it
 #this is the library we will be using to control the mouse and keyboard, see example below
 #for me, the # was between 15% to 9% for X and 35% to 50% for Y, I picked values in between and it is spot on
-
+CONFIG_DATA = read_config.read_config()
 screen_width, screen_height = pyautogui.size()
 #x_percent = 0.17
 #y_percent = 0.41
@@ -25,10 +26,8 @@ screen_width, screen_height = pyautogui.size()
 #time.sleep(1)
 
 def hover_item():
-    x_percent_item = 0.174
-    y_percent_item = 0.422
-    x_item=int(screen_width * x_percent_item)
-    y_item=int(screen_height * y_percent_item)
+    x_item=int(screen_width * CONFIG_DATA['item_x_coordinate_percent'])
+    y_item=int(screen_height * CONFIG_DATA['item_y_coordinate_percent'])
     pyautogui.moveTo(x_item,y_item, duration=0.1)
 
 def copy_item():
@@ -46,23 +45,16 @@ def check_clipboard_for(keyword, line_number=3):
     return False
 
 
-    
-
 def use_alt():
-    x_percent_alt = 0.057
-    y_percent_alt = 0.248
-    x_alt=int(screen_width * x_percent_alt)
-    y_alt=int(screen_height * y_percent_alt)
+    x_alt=int(screen_width * CONFIG_DATA['alt_x_coordinate_percent'])
+    y_alt=int(screen_height * CONFIG_DATA['alt_y_coordinate_percent'])
     pyautogui.moveTo(x_alt,y_alt, duration=0.1)
     pyautogui.rightClick()
     hover_item()
 
 def use_aug():
-    x_percent_aug = 0.117
-    y_percent_aug = 0.3
-    x_aug=int(screen_width * x_percent_aug)
-    y_aug=int(screen_height * y_percent_aug)
+    x_aug=int(screen_width * CONFIG_DATA['aug_x_coordinate_percent'])
+    y_aug=int(screen_height * CONFIG_DATA['aug_y_coordinate_percent'])
     pyautogui.moveTo(x_aug,y_aug, duration=0.1)
     pyautogui.rightClick()
     hover_item()
-
